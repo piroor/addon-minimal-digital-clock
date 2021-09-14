@@ -45,7 +45,7 @@
 			<path fill="${BG_COLOR}" d="M24,18.441c0,2.2-1.8,4-4,4H4c-2.2,0-4-1.8-4-4V4c0-2.2,1.8-4,4-4h16c2.2,0,4,1.8,4,4V18.441z"/>
 			<text transform="matrix(1 0 0 1 6.9355 8.418)" fill="${TEXT_COLOR}" font-size="10">${hh}</text>
 			<text transform="matrix(1 0 0 1 6.9355 21)" fill="${TEXT_COLOR}" font-size="10">${mm}</text>
-			<line stroke="${TEXT_COLOR}" x1="4.167" y1="11" x2="19.834" y2="11.221"/>
+			<line stroke="${TEXT_COLOR}" x1="4.167" y1="11" x2="19.834" y2="11"/>
 			</svg>
 		`.trim();
 		return `data:image/svg+xml,${escape(svg)}`;
