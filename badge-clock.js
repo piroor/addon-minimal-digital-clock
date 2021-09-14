@@ -41,9 +41,11 @@
 			<?xml version="1.0" encoding="utf-8"?>
 			<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24">
-			<path fill="#0D1419" style="opacity:0.2;" d="M24,16.774c0,0.779-0.638,1.417-1.417,1.417H1.418C0.638,18.191,0,17.554,0,16.774V9.227 C0,8.447,0.638,7.81,1.418,7.81h21.165C23.362,7.81,24,8.447,24,9.227V16.774z"/>
-			<path d="M24,15.774c0,0.779-0.638,1.417-1.417,1.417H1.418C0.638,17.191,0,16.554,0,15.774V8.227C0,7.447,0.638,6.81,1.418,6.81 h21.165C23.362,6.81,24,7.447,24,8.227V15.774z" fill="${BG_COLOR}"/>
-			<text transform="matrix(1 0 0 1 0.5527 15.2773)" fill="${TEXT_COLOR}" font-size="7.5">${hh}:${mm}</text>
+			<path fill="#0D1419" style="opacity:0.2;" d="M24,19.912c0,2.2-1.8,4-4,4H4c-2.2,0-4-1.8-4-4V5.47c0-2.2,1.8-4,4-4h16c2.2,0,4,1.8,4,4V19.912z"/>
+			<path fill="${BG_COLOR}" d="M24,18.441c0,2.2-1.8,4-4,4H4c-2.2,0-4-1.8-4-4V4c0-2.2,1.8-4,4-4h16c2.2,0,4,1.8,4,4V18.441z"/>
+			<text transform="matrix(1 0 0 1 6.9355 8.418)" fill="${TEXT_COLOR}" font-size="10">${hh}</text>
+			<text transform="matrix(1 0 0 1 6.9355 21)" fill="${TEXT_COLOR}" font-size="10">${mm}</text>
+			<line stroke="${TEXT_COLOR}" x1="4.167" y1="11" x2="19.834" y2="11.221"/>
 			</svg>
 		`.trim();
 		return `data:image/svg+xml,${escape(svg)}`;
