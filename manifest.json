@@ -1,21 +1,26 @@
 {
-  "manifest_version": 2,
-  "name": "Minimal Digital Clock",
-  "version": "1.1",
+	"manifest_version": 2,
+	"name": "Minimal Digital Clock",
+	"version": "1.2",
+	"author": "notetau",
 
-  "description": "Adds minimal digital clock in Toolbar",
+	"description": "Adds minimal digital clock in Toolbar",
 
 	"icons": {
-	 "48": "icon48.png"
- 	},
+		"48": "icon48.png",
+		"96": "icon96.png"
+	},
 
-  "browser_action": {
-    "default_icon": "none.png",
-    "default_title": "digital clock"
-  },
+	"browser_action": {
+		"browser_style": true,
+		"default_area": "navbar",
+		"default_icon": "none.png",
+		"default_popup": "popup.html",
+		"default_title": "digital clock"
+	},
 
 	"background": {
-	  "scripts": ["badge-clock.js"]
+		"scripts": ["badge-clock.js"]
 	},
 
 	"options_ui": {

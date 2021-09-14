@@ -1,7 +1,6 @@
 'use strict';
 
 (function() {
-	const BADGE_COLOR = "#000000";
 	var CFG_DISP_FORMAT = "24";
 
 	function updateClock() {
@@ -21,7 +20,6 @@
 		browser.browserAction.setBadgeText({text:hh + mm});
 		browser.browserAction.setTitle({title:date.toLocaleDateString()});
 	}
-	browser.browserAction.setBadgeBackgroundColor({color:BADGE_COLOR})
 
 	function getNextTimeout() {
 		const now = Date.now();
@@ -35,20 +33,33 @@
 		setTimeout(callback, getNextTimeout());
 	};
 
-	// read configs
-	browser.storage.local.get("display_format").then(
-		function(result) {
-			CFG_DISP_FORMAT = result.display_format;
-			updateClock();
-		},
-		function(error) { console.log(`Error: ${error}`); }
-	);
 	browser.storage.onChanged.addListener(function(changes, areaName) {
 		if (areaName == "local") {
-			CFG_DISP_FORMAT = changes.display_format.newValue;
+			if (changes.display_format) {
+				CFG_DISP_FORMAT = changes.display_format.newValue;
+			}
+			if (changes.text_color) {
+				browser.browserAction.setBadgeTextColor({color: changes.text_color.newValue});
+			}
+			if (changes.background_color) {
+				browser.browserAction.setBadgeBackgroundColor({color: changes.background_color.newValue});
+			}
 			updateClock();
 		}
 	});
 
-	callback();
+	// read configs
+	browser.storage.local.get({
+		display_format: "24",
+		text_color: "#FFFFFF",
+		background_color: "#000000"
+	}).then(function(result) {
+			CFG_DISP_FORMAT = result.display_format;
+			browser.browserAction.setBadgeTextColor({color: result.text_color});
+			browser.browserAction.setBadgeBackgroundColor({color: result.background_color});
+
+			callback();
+		},
+		function(error) { console.log(`Error: ${error}`); }
+	);
 })();
